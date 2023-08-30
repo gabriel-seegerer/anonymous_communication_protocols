@@ -5,7 +5,7 @@ This projects goal was to implement various anonymous communication protocols fo
 
 The algebraic manipulation detection code that was used is found in [Experimental implementation of secure anonymous protocols on an eight-user quantum network - Huang, Joshi 2022](https://www.nature.com/articles/s41534-022-00535-1).
 
-A modified version of [Maurice Snoeren - python-p2p-network](https://github.com/macsnoeren/python-p2p-network) gets used to create Participants in a p2p network who then can execute various protocols with each other.
+A modified version of [Maurice Snoeren - python-p2p-network](https://github.com/macsnoeren/python-p2p-network) is used to create participants in a p2p network who then can execute various protocols with each other.
 
 ### Design
 Everything revolvs around ParticipantNode. A ParticipantNode is a Participant in the p2p network. After it gets created it can connect to other nodes. Since everything is decentralized the participant has to make sure he is connected to every other participant in the network.
@@ -24,7 +24,7 @@ For example message transmission:
 - Set print_protocols in Line 183 to True
 - Make sure to have only line 220 test_message_transmission active
 - Run 2 or more instances of client_example.py
-- Client IDs are numbers beginning from 1.
+- Client IDs are numbers starting at 1.
 - Start with Client 1 and give following Inputs:
   - ID: 1
   - Message Input: Hello 2!
@@ -35,12 +35,12 @@ For example message transmission:
   - Receiver ID:
 - Press Enter to start
 
-client_example.py can easily be modified so that the participants don't connect to localhost:portXY but to specified IPs and Ports.
+client_example.py can easily be modified so the participants don't connect to localhost:portXY but to specified IPs and Ports.
 
 ### Change Message Length
 At the moment the participants have to agree to a fixed message length for message transmission. By default its 64 bits, which means after AMDC encoding with security parameter beta = 5 the length is 99 bits. To change the length there is a script d_gama_calculator.py in p2p_network/ which can be used to calculate the message length.
 
-After calculating in participant_node.py the variables message_length and ecoded_message_length in lines 66/67 have to be changed to the new values.
+After calculating the variables message_length and ecoded_message_length in lines 66/67 in participant_node.py have to be changed to the new values.
 
 Make sure to use the corresponding security factor when running execute_message_transmission(security).
 
@@ -49,7 +49,7 @@ Timing creates multiple processes using the multiprocessing module to achieve tr
 
 Resulting data is stored as "protocol_name_pickle.pickle" and can be read and visualized with show_graph.py.
 
-Reason behind this is, that the protocols got timed on a vm so the resulting data could easily be copied from one machtine to another.
+Reason behind this is, that the protocols got timed on a vm so the resulting data could easily be copied from one machine to another.
 
 
 ### TODOs
